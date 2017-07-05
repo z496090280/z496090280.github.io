@@ -9,13 +9,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="css/highlight.css">
+    <link rel="stylesheet" href="css/bowen.css">
     <script src="js/iconfont.js"></script>
     <script src="js/highlight.js"></script>
     <!--[if lt IE 9]>
       <script src=js/html5shiv.js"></script>
       <script src=js/respond.min.js"></script>
     <![endif]-->
-    <script>hljs.initHighlightingOnLoad();</script>  
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -39,14 +40,14 @@
         <li><a href="#">个人简述</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#tab-Chrome">整理ing</a></li>
-                <li><a href="#tab-Firefox">整理ing</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#tab-Opera">整理ing</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#tab-IE">整理ing</a></li>
-            </ul>
+          <ul class="dropdown-menu">
+            <li><a href="#tab-Chrome">整理ing</a></li>
+            <li><a href="#tab-Firefox">整理ing</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#tab-Opera">整理ing</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#tab-IE">整理ing</a></li>
+          </ul>
         </li>
         <li><a href="#"  data-toggle="modal" data-target="#about">赞助</a></li>
         <li><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ebc53a43c8884691d0f13035a63c766f2c6256314400da97a6f1435c9f10c8ff">QQ群</a></li>
@@ -69,91 +70,122 @@
   </div>
 </div>
 <div class="content container">
-  <div class="row">
-    <!--左边-->
-    <div class="left_content col-lg-9 col-md-8 col-sm-8 col-xs-12">
-      <h3>热门文章</h3>
-      <figure class="dome1 col-md-12">
-        <a href="bowen_1.html"><img src="images/lufei.jpg"></a>
-        <figcaption>
-          <h2 class="pink">rem移动端单位</h2>
-          <p>移动端解决方案</p>
-          <p>适配任何设备</p>
-          <p>你知道这个单位吗？</p>
-        </figcaption>
-      </figure>
-      <h3>推荐文章</h3>
-        <a href="bowen_2.html">
-          <figure class="dome2 col-md-6">
-            <img src="images/qian.jpg">
-            <figcaption>
-              <h2 class="green">highlight.js插件</h2>
-              <p>坑了我3个多小时的bug！</p>
-              <div></div>
-            </figcaption>
-          </figure>
-        </a>
-      <figure class="dome3 col-md-6">
-        <img src="images/xiang.jpg">
-         <a href="javascript:alert('请期待..')">
-            <figcaption>
-              <h2 class="blue">X-man扭曲</h2>
-              <p>影片《X战警》改编自漫威同名漫画，是由福克<br>斯电影公司出品的《X战警》系列电影.</p>
-            </figcaption>
-         </a>
-      </figure>
-      <figure class="dome4 col-md-6">
-        <img src="images/lu.jpg">
-          <a href="javascript:alert('请期待..')">
-            <figcaption>
-              <h2 class="orange">我是标题</h2>
-              <p>变大大大~~~~~~~</p>
-              <div></div>
-            </figcaption>
-          </a>
-      </figure>
-        <!-- 分页 -->
-      <div class="col-md-12">
-        <nav style="text-align: center;">
-          <ul class="pagination">
-          <li><span class="page-numbers current">1</span>
-          </li><li><a class="next page-numbers" >下一页 »</a></li>
-          </ul>       
-          </nav>
+    <h2>highlight.js的应用于实践</h2>
+    <div class="secTitleBar">
+      <ul>
+        <li>分类：插件篇</li>
+        <li>发表于：2017-07-04</li>
+      </ul>
+    </div>
+    <h3>先来看看 highlight.js 有什么能力吧：</h3>
+    <ul>
+        <li>支持 71 种编程语言的语法解析；拥有 44 种样式</li>
+        <li>自动检测编程语言</li>
+        <li>同时为多种编程语言代码高亮</li>
+        <li>可以在 node.js 平台上运行</li>
+        <li>支持各种标签</li>
+        <li>与任何 js 框架兼容</li>
+    </ul>
+    <p>OK，接下来就看看怎么用 hightlight.js 吧！</p>
+    <h3>引入 highlight.js 文件</h3>
+    <pre>
+        <code class="html">
+            &lt;link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet"&gt;
+            &lt;script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"&gt;&lt;/script&gt;
+            &lt;script &gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+        </code>
+    </pre>
+    <blockquote>
+        <p>1.第一个文件是样式文件，我们采用 sublime 编辑器类似的样式</p>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <strong>注意:</strong> 这里采用Bootstrap中文网 提供的 CDN 链接，而非官网提供的 CDN（本人用的时候官网版本9.12.0版本，貌似有一些不明的问题）
+        </div>
+        <p>2.第二个文件是 highlight.js 的核心文件，就是它解析代码的。</p>
+        <p>3.第三个文件是调用 hihglight.js 解析代码,把这三步全部放在head标签里面！</p>
+    </blockquote>
+    <h3>body部分准备工作</h3>
+    <pre>
+      <code class="html">
+          &lt;pre&gt;&lt;code class="css"&gt;...&lt;/code&gt;&lt;/pre&gt;
+      </code>
+    </pre>
+    <blockquote>
+      <p>所有代码写在code的包裹中，其中class指定语言类型，案例中已css为例。</p>
+    </blockquote>
+    <h3>css代码高亮实例：</h3>
+    <pre>
+        <code class="css">
+            body{
+                background:#f1f1f1;
+            }
+            .content{
+                background:#fff;
+            }
+            blockquote{
+                border-left:5px solid #0593d3;
+            }
+            h2{
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            h3{
+                font-weight: bold;
+            }
+            p{
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+        </code>
+    </pre>
+    <h3>javascript代码高亮实例：</h3>
+    <pre>
+        <code class="javascript">
+            var docEl = document.documentElement;
+            function getSize() {// 获取屏幕的宽度
+                var screenWidth = docEl.clientWidth;
+                docEl.style.fontSize =  screenWidth / (640/60)  + 'px';
+            }
+            getSize();// 页面加载完执行一次
+            window.onresize = function() {
+                getSize();
+            }
+        </code>
+    </pre>
+    <h3>html代码高亮实例：</h3>
+    <pre>
+        <code class="html">
+            &lt;ul class="dropdown-menu"&gt;
+                &lt;li&gt;&lt;a href="#tab-Chrome"&gt;chrome浏览器&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#tab-Firefox"&gt;Mozilla Firefox&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#tab-Safari"&gt;Safari&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#tab-Opera"&gt;Opera浏览器&lt;/a&gt;&lt;/li&gt;
+                &lt;li role="separator" class="divider"&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#tab-IE"&gt;IE&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        </code>
+    </pre>
+    <code>
+        最坑的就是html应用了！！！
+    </code>
+    <blockquote>
+      <p>为什么说html最坑呢，因为你直接复制<code>html文档</code>进去他会解析成html文档流</p>
+      <p>解决方案：把所有的标签括号全部换成代码格式，就像这样：<pre><用&amp;lt;表示<br/>>用&amp;gt;表示</pre>
+      <p>番外篇:在页面输出&amp;lt;需要代码转义<code>&amp;amp;lt;</code>，不然在页面输出就是<了。。。</p>
+    </blockquote>
+    <h4>总结</h4>
+    <p>highlight.js 支持 176 种编程语言（完整列表看<a href="https://highlightjs.org/static/demo/">这里</a>），在你书写这些代码的时候，可以看看 highlight.js 是否支持所用的语法，然后标注对应的语言，让 highlight.js 完美的对其高亮显示吧。</p>
+    <p>本页面中的代码高亮就是上面的方式哦，直接开启浏览器的调试工具研究吧！喜欢分享一下哦..</p>
+    <hr />
+    <div class="pull-left">
+      <div class="edit-time">
+        编辑于:2017-07-04
       </div>
     </div>
-    <!--右边-->
-    <div class="right_content col-lg-3 col-md-3 col-sm-3">
-      <h3>最新发表</h3>
-      <ul class="list uk-nav">
-        <li><a href="bowen_2.html">highlight.js插件及应用</a></li>
-        <li><a href="bowen_1.html">rem移动端单位</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-      </ul>
-      <div class="col-md-12">
-        <div class="col-md-3">
-            <img style="margin-top:20px " src="images/mao.jpg" alt=""/>
-        </div>
-        <div class="solo col-md-9">
-            <p>不想当厨<br>子的程序猿就不是专业的产品!</p>
-        </div>
-      </div>
-      <h3>标签</h3>
-      <ul class="list tag-prompt clearfix">
-        <li><button>es6</button></li>
-        <li><button>css3</button></li>
-        <li><button>javascript</button></li>
-        <li><button>日常</button></li>
-        <li><button>webpack</button></li>
-      </ul>
-
+    <div class="pull-right">
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </div>
-  </div>
 </div>
 
 <div class="container" id="boxCenten">
@@ -273,6 +305,9 @@
           .to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
           .to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
       });
+    </script>
+    <script>
+
     </script>
   </body>
 </html>

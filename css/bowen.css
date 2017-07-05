@@ -1,0 +1,44 @@
+body{
+    background:#f1f1f1;
+}
+.content{
+    background:#fff;
+    padding:50px 30px;
+}
+blockquote{
+    border-left:5px solid #0593d3;
+}
+h2{
+    text-align: center;
+    font:500 26px "Microsoft Yahei";
+    color:#555;
+}
+.list-item li{
+    line-height: 30px;
+}
+h3{
+    font-weight: bold;
+    margin-top: 20px;
+}
+h4{
+    font-size: 20px;
+    color:#1b809e;
+    font-weight: bold;
+}
+p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.secTitleBar{
+    padding: 15px 0;
+    text-align: center;
+}
+.secTitleBar ul li{
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 13px;
+    color: #999;
+}
+.edit-time{
+    color:#959595;
+}

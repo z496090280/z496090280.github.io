@@ -9,13 +9,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="css/highlight.css">
+    <link rel="stylesheet" href="css/bowen.css">
     <script src="js/iconfont.js"></script>
     <script src="js/highlight.js"></script>
     <!--[if lt IE 9]>
       <script src=js/html5shiv.js"></script>
       <script src=js/respond.min.js"></script>
     <![endif]-->
-    <script>hljs.initHighlightingOnLoad();</script>  
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -39,14 +40,14 @@
         <li><a href="#">个人简述</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#tab-Chrome">整理ing</a></li>
-                <li><a href="#tab-Firefox">整理ing</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#tab-Opera">整理ing</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#tab-IE">整理ing</a></li>
-            </ul>
+          <ul class="dropdown-menu">
+            <li><a href="#tab-Chrome">整理ing</a></li>
+            <li><a href="#tab-Firefox">整理ing</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#tab-Opera">整理ing</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#tab-IE">整理ing</a></li>
+          </ul>
         </li>
         <li><a href="#"  data-toggle="modal" data-target="#about">赞助</a></li>
         <li><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ebc53a43c8884691d0f13035a63c766f2c6256314400da97a6f1435c9f10c8ff">QQ群</a></li>
@@ -69,91 +70,77 @@
   </div>
 </div>
 <div class="content container">
-  <div class="row">
-    <!--左边-->
-    <div class="left_content col-lg-9 col-md-8 col-sm-8 col-xs-12">
-      <h3>热门文章</h3>
-      <figure class="dome1 col-md-12">
-        <a href="bowen_1.html"><img src="images/lufei.jpg"></a>
-        <figcaption>
-          <h2 class="pink">rem移动端单位</h2>
-          <p>移动端解决方案</p>
-          <p>适配任何设备</p>
-          <p>你知道这个单位吗？</p>
-        </figcaption>
-      </figure>
-      <h3>推荐文章</h3>
-        <a href="bowen_2.html">
-          <figure class="dome2 col-md-6">
-            <img src="images/qian.jpg">
-            <figcaption>
-              <h2 class="green">highlight.js插件</h2>
-              <p>坑了我3个多小时的bug！</p>
-              <div></div>
-            </figcaption>
-          </figure>
-        </a>
-      <figure class="dome3 col-md-6">
-        <img src="images/xiang.jpg">
-         <a href="javascript:alert('请期待..')">
-            <figcaption>
-              <h2 class="blue">X-man扭曲</h2>
-              <p>影片《X战警》改编自漫威同名漫画，是由福克<br>斯电影公司出品的《X战警》系列电影.</p>
-            </figcaption>
-         </a>
-      </figure>
-      <figure class="dome4 col-md-6">
-        <img src="images/lu.jpg">
-          <a href="javascript:alert('请期待..')">
-            <figcaption>
-              <h2 class="orange">我是标题</h2>
-              <p>变大大大~~~~~~~</p>
-              <div></div>
-            </figcaption>
-          </a>
-      </figure>
-        <!-- 分页 -->
-      <div class="col-md-12">
-        <nav style="text-align: center;">
-          <ul class="pagination">
-          <li><span class="page-numbers current">1</span>
-          </li><li><a class="next page-numbers" >下一页 »</a></li>
-          </ul>       
-          </nav>
+    <h2>rem移动端单位实战</h2>
+    <div class="secTitleBar">
+      <ul>
+        <li>分类：移动端布局</li>
+        <li>发表于：2017-07-05</li>
+      </ul>
+    </div>
+    <h3>这里对rem的原理不做多的解释</h3>
+    <ul class="list-item">
+        <li>个人理解是是一种比例单位</li>
+        <li>赋值font-size给html</li>
+        <li>从而使整个html的大小随之变化而变化</li>
+        <li>支持横竖屏及各种大小屏幕手机</li>
+        <li>兼容 IE9以上等其他主流浏览器</li>
+    </ul>
+    <p>OK，接下来就看看怎么实际应用吧！</p>
+    <h3>引入 meta 标签</h3>
+    <pre>
+        <code class="html">
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+        </code>
+    </pre>
+    <blockquote>
+        <p>这个meta是控制视口大小及缩放</p>
+    </blockquote>
+    <h3>javascript部分</h3>
+    <pre>
+      <code class="javascript">
+        var docEl = document.documentElement;
+        function getSize() {
+            var screenWidth = docEl.clientWidth;// 获取屏幕的宽度
+            docEl.style.fontSize =  screenWidth / (640/60)  + 'px';//设置html字体大小
+        }
+        getSize();// 页面加载完执行一次
+        window.onresize = function() {
+            getSize();//窗口或框架被调整大小时触发
+        }
+      </code>
+    </pre>
+    <blockquote>
+      <p>这段js控制实际html的font-size值，最后在自己写单位的时候按照设计稿把px全改成rem单位！</p>
+    </blockquote>
+    <h3>番外篇:最后提供一款sublime插件</h3>
+    <pre>
+        <code class="css">
+         {
+            "px_to_rem":60,
+            "max_rem_fraction_length": 4,
+            "available_file_types": [".css", ".less", ".sass"]
+         }
+        </code>
+    </pre>
+    <code>
+        这款插件名叫cssrem，可自动转换成rem单位。
+    </code>
+    <blockquote>
+      <pre>第一行表示倍数<br>第一行表示保留小数点后几位<br>第三行表示可用的文件类型</pre>
+    </blockquote>
+    <h4>总结</h4>
+    <p>这样子就能做到具有“响应式”的效果啦，如果本文有不正确的地方，请指出^_^</p>
+    <p>喜欢分享一下哦..</p>
+    <hr />
+    <div class="pull-left">
+      <div class="edit-time">
+        编辑于:2017-07-05
       </div>
     </div>
-    <!--右边-->
-    <div class="right_content col-lg-3 col-md-3 col-sm-3">
-      <h3>最新发表</h3>
-      <ul class="list uk-nav">
-        <li><a href="bowen_2.html">highlight.js插件及应用</a></li>
-        <li><a href="bowen_1.html">rem移动端单位</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-        <li><a href="#">等待更新...</a></li>
-      </ul>
-      <div class="col-md-12">
-        <div class="col-md-3">
-            <img style="margin-top:20px " src="images/mao.jpg" alt=""/>
-        </div>
-        <div class="solo col-md-9">
-            <p>不想当厨<br>子的程序猿就不是专业的产品!</p>
-        </div>
-      </div>
-      <h3>标签</h3>
-      <ul class="list tag-prompt clearfix">
-        <li><button>es6</button></li>
-        <li><button>css3</button></li>
-        <li><button>javascript</button></li>
-        <li><button>日常</button></li>
-        <li><button>webpack</button></li>
-      </ul>
-
+    <div class="pull-right">
+      <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
     </div>
-  </div>
 </div>
 
 <div class="container" id="boxCenten">
@@ -273,6 +260,9 @@
           .to("#gotop1", 1, {y:-1000, opacity:0, ease:  Power4.easeOut}, 0.6)
           .to("#gotop1", 1, {y:0, rotationY:0, opacity:1, scale:1, ease: Expo.easeOut, clearProps: "all"}, "1.4");
       });
+    </script>
+    <script>
+
     </script>
   </body>
 </html>
