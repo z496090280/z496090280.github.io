@@ -78,7 +78,7 @@
       </ul>
     </div>
     <h3>先来看看 highlight.js 有什么能力吧：</h3>
-    <ul>
+    <ul class="list-item">
         <li>支持 71 种编程语言的语法解析；拥有 44 种样式</li>
         <li>自动检测编程语言</li>
         <li>同时为多种编程语言代码高亮</li>
@@ -98,7 +98,7 @@
     <blockquote>
         <p>1.第一个文件是样式文件，我们采用 sublime 编辑器类似的样式</p>
         <div class="alert alert-warning alert-dismissible" role="alert">
-            <strong>注意:</strong> 这里采用Bootstrap中文网 提供的 CDN 链接，而非官网提供的 CDN（本人用的时候官网版本9.12.0版本，貌似有一些不明的问题）
+            <strong>注意:</strong> 这里采用Bootstrap中文网 提供的 CDN 链接，而非官网提供的 CDN（本人用的时候官网是9.12.0版本，貌似有一些不明的问题）
         </div>
         <p>2.第二个文件是 highlight.js 的核心文件，就是它解析代码的。</p>
         <p>3.第三个文件是调用 hihglight.js 解析代码,把这三步全部放在head标签里面！</p>
@@ -170,7 +170,7 @@
     </code>
     <blockquote>
       <p>为什么说html最坑呢，因为你直接复制<code>html文档</code>进去他会解析成html文档流</p>
-      <p>解决方案：把所有的标签括号全部换成代码格式，就像这样：<pre><用&amp;lt;表示<br/>>用&amp;gt;表示</pre>
+      <p>解决方案：把所有的标签括号全部换成代码格式，就像这样<pre><用&amp;lt;表示<br/>>用&amp;gt;表示</pre>
       <p>番外篇:在页面输出&amp;lt;需要代码转义<code>&amp;amp;lt;</code>，不然在页面输出就是<了。。。</p>
     </blockquote>
     <h4>总结</h4>
