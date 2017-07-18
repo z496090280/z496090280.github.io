@@ -16,7 +16,7 @@ h2{
 .list-item li{
     line-height: 30px;
 }
-h3{
+h3:not(:first-child){
     font-weight: bold;
     margin-top: 40px;
 }
