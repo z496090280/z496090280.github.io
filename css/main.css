@@ -220,7 +220,7 @@ body,figure,img,figcaption,h2,p
 figure
 {
     width: 33.33%;
-    height: 250px;
+    height:263px;
     overflow: hidden;
     position: relative;
     float: left;
@@ -265,18 +265,18 @@ figcaption,figcaption>p
 }
 /*媒体查询*/
 @media screen and (max-width: 600px){
-    figure{width: 100%;height: auto;}
+    figure{width: 100%;height: 300px;}
     figure img{width: 100%;}
     .zs{width:280px;}
     .left_content{padding-right: 0;}
     .right_content{display: none;}
 }
 @media screen and (min-width: 601px) and (max-width: 1000px){
-    figure{width: 100%;height: auto;}
+    figure{width: 100%;height: 236px;}
     figure img{width: 100%;}
 }
 @media screen and (min-width: 1001px){
-    figure{width: 33.33%;}
+    figure{width: 33.33%;height:250px;}
 }
 
 .dome1 figcaption
@@ -385,18 +385,18 @@ figcaption,figcaption>p
 {
     opacity: 0.5;
 }
-.dome4 figcaption
+.dome4 figcaption,.dome5 figcaption
 {
     width: 100%;
     height: 100%;
     color: #fff;
 }
-.dome4 figcaption a
+.dome4 figcaption a,.dome5 figcaption a
 {
     margin-top: 15%;
     margin-left: 15%;
 }
-.dome4 figcaption p
+.dome4 figcaption p,.dome5 figcaption p
 {
     margin-top: 5%;
     margin-left: 15%;
@@ -418,11 +418,23 @@ figcaption,figcaption>p
     transform: scale(1);
     opacity: 1;
 }
-.dome4:hover img
+.dome4:hover img,.dome5:hover img
 {
     opacity: 1;
     transform: scale(1.2);
 } 
+.dome5 figcaption div{
+    width: 160%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(-5%, -135%, 0);
+    -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(-5%, -135%, 0);
+}
+.dome5:hover figcaption div{
+    transition: transform 0.7s ease 0s;
+    transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(5%, 146%, 0);
+    -webkit-transform: scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(5%, 146%, 0);
+}
 
 /**footer版权去**/
 footer{
