@@ -179,6 +179,18 @@ hr{margin: 30px 0;}
     margin-top: 70px;
     z-index: 9;
 }
+.content h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.content .secTitleBar ul{
+    text-align: center;
+    color:#999;
+}
+.content .secTitleBar ul li{
+    display:inline-block;
+    margin-right: 50px;
+}
 .uk-nav li > a{
     display: block;
     text-decoration: none;
@@ -502,3 +514,11 @@ footer{
     transform: scale3d(1, 1, 1);
   }
 } 
+/* web开发样式 */
+
+.web-development p {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin: 0 0 15px 0;
+    color: #666;
+}
